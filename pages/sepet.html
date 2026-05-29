@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepetim - İstanbul Turları</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+<div class="navbar">
+        <div class="logo">İstanbul Turları</div>
+        <div class="menuleri-tut">
+            <a href="../index.html">Ana Sayfa</a>
+            <a href="turlar.html">Turlarımız</a>
+            <a href="gezilecek_yerler.html">Gezilecek Yerler</a>
+            <a href="tarihce.html">Şehir Tarihi</a>
+            <a href="sepet.html">Sepetim</a>
+            <a href="iletisim.html">İletişim</a>
+        </div>
+    </div>
+
+    <div class="ana-icerik">
+        <h1>Alışveriş Sepetiniz</h1>
+        
+        <div class="sepet-kutusu">
+            <p id="sepet-durum-yazisi">Sepetiniz şu anda boş.</p>
+            
+            <div id="sepet-detay-alani" style="display: none;">
+                <h3 id="sepet-tur-adi">Seçilen Tur: -</h3>
+                <p class="sepet-fiyat-yazi">Toplam Tutar: <b id="sepet-toplam-fiyat">0</b> TL</p>
+                
+                <button onclick="sepetiBosalt()" class="bosalt-btn">Sepeti Temizle</button>
+                <button onclick="satinalmaOnayi()" class="onay-btn">Alışverişi Tamamla</button>
+            </div>
+        </div>
+    </div>
+
+  <div class="footer">
+        <p>© 2026 İstanbul Turizm Acentesi - Tüm Hakları Saklıdır.</p>
+    </div>
+
+    <script src="../scripts/myscript.js"></script>
+    
+    <script>
+       
+        var tur = localStorage.getItem("secilenTur");
+        var fiyat = localStorage.getItem("turFiyati");
+
+        if (tur && fiyat) {
+            document.getElementById("sepet-durum-yazisi").style.display = "none";
+            document.getElementById("sepet-detay-alani").style.display = "block";
+            
+            document.getElementById("sepet-tur-adi").innerText = "Seçilen Tur: " + tur;
+            document.getElementById("sepet-toplam-fiyat").innerText = fiyat;
+        }
+    </script>
+</body>
+</html>
